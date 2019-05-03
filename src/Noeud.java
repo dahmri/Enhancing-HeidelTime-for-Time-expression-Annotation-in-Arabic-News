@@ -80,13 +80,7 @@ public class Noeud {
 		return -1;
 	}
 	
-	
-	
 
-
-	
-	
-	
 	
 	void RemplirStructure(String fichier,Noeud Racine){
 		
@@ -117,12 +111,7 @@ public class Noeud {
 	
 	
 	
-	
-	
-	
 
-	
-	
 	
 	boolean RechercheExacte(String S, Noeud D,int position){
 
@@ -147,12 +136,4 @@ public class Noeud {
 	
 	
 	
-	
-	
-	
-	
-
-	
-	
-	
-}// fin de classe 
+}
