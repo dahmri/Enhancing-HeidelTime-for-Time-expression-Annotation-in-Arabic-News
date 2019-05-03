@@ -92,7 +92,6 @@ public class TagTest {
 		}
 		
 		// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		
 		// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// step 4 : from the Time_expressions_list we detect Time_expressions in
 		// arrList_Word_Tag
@@ -114,7 +113,6 @@ public class TagTest {
 				arrList_Word = clean(arrList_Word);
 				if (lenght == 1) 
 				{
-					// System.out.println("i am in length=1");
 
 					if (arrList_Word.equals(Time_expression))
 						arrList_Word_Tag.get(j).Time = true;
@@ -124,14 +122,11 @@ public class TagTest {
 				if (lenght > 1) 
 				{
 					int c = 0, rep = 1;
-					// System.out.println("i am in length >1");
-					//System.out.println(lenght);
 					while (lenght > c) 
 					{
 						arrList_Word = arrList_Word_Tag.get(j + c).Word;
 						if (!arrList_Word.equals(split_time_expression[c]))
 						{
-							// System.out.println("i am in length > 1 and not equals");
 							rep = 0;
 							c = lenght + 1;
 						}
@@ -142,8 +137,6 @@ public class TagTest {
 					if (rep == 1) 
 					{
 						c = 0;
-						// System.out.println("i am in length > 1 and  equals");
-						// c=0;
 						String new_Word = "";
 
 						while (lenght > c) 
@@ -151,7 +144,6 @@ public class TagTest {
 
 							new_Word = new_Word + " " + arrList_Word_Tag.get(j + c).Word;
 							//System.out.println(arrList_Word_Tag.get(j + c).Word);
-
 							// arrList_Word_Tag.get(j+c).Word="";
 							// arrList_Word_Tag.get(j+c).Tag="NN";
 							// arrList_Word_Tag.get(j+c).Time=false;
@@ -196,7 +188,7 @@ public class TagTest {
 		 * //System.out.println(arrList_Word_Tag.get(k).Word); k++;}
 		 */
 
-		// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// step 5 : detect sentences in arrList_Word_Tag
 		k = 0;
 		i = 0;
@@ -213,7 +205,7 @@ public class TagTest {
 
 				//if (arrList_Word_Tag.get(k).Time == false) sentence = sentence + " " + arrList_Word_Tag.get(k).Word;
 				//else sentence = sentence + " <>" + arrList_Word_Tag.get(k).Word+ "<> ";
-				// System.out.println(arrList_Word_Tag.get(k).Word);
+				//System.out.println(arrList_Word_Tag.get(k).Word);
 				
 				if (first == 0) 
 				{	
@@ -229,9 +221,9 @@ public class TagTest {
 
 			}
 
-			else if ((arrList_Word_Tag.get(k).word_position == "SEOS")) /* SEOS = End Of Sentence */
+			else if ((arrList_Word_Tag.get(k).word_position == "SEOS")) // SEOS = End Of Sentence
 			{
-				arrList_Word_Tag.get(k - 1).word_position = "LW";  /* LW = Last Word */
+				arrList_Word_Tag.get(k - 1).word_position = "LW";  // LW = Last Word
 				add = 1;
 			}
 
@@ -280,7 +272,6 @@ public class TagTest {
 					j++;
 				}
 				if (arrList_Word_Tag.get(k).word_position == "LW") add = 1;
-
 				i++;
 			}
 
@@ -296,7 +287,7 @@ public class TagTest {
 			k++;
 		}
 
-		// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		/*
 		 * int p=0; k=0; while (arryList_sentences.size()!=k){ i=0; j=0;
 		 * 
@@ -317,7 +308,7 @@ public class TagTest {
 		 * "--------------------------------------------------------------");
 		 * k++;}
 		 */
-       /*
+                /*
 		k = 0;
 		while (arrList_Word_Tag.size() != k) {
 
@@ -345,7 +336,6 @@ public class TagTest {
 		k = 0;
 		while (arryList_sentences.size() != k) 
 		{
-			// System.out.println("--------------------------------------------------------------"+k);
 
 			if (arryList_sentences.get(k).nb_short_time_expression != 0) 
 			{
@@ -359,7 +349,6 @@ public class TagTest {
 					String ss = "";
 					int c = arryList_sentences.get(k).time_expression_index[b];
 					int d = arryList_sentences.get(k).time_expression_index[e];
-					// System.out.println(c+"  ___  "+d);
 					if (c - d == 0)
 					{
 						if (is_found(arryList_sentences.get(k).list_of_WordTag.get(c).Word) == true) // short time expression alone ----> it is not a time expressions if it is alone
