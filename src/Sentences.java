@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 
 public class Sentences {
-	
 	int nb_word;
 	int nb_short_time_expression;
     	ArrayList<Word_Tag> list_of_WordTag = new ArrayList <Word_Tag> () ;
