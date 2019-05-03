@@ -40,7 +40,7 @@ public class TagTest {
 			String[] split;
 			String[] split_time_expression;
 			int i = 0;
-		FileInputStream filestream = new FileInputStream("C:/Users/dahmri/Desktop/TEST_FOR_Corpus/doc"+nb_doc+".txt");
+		FileInputStream filestream = new FileInputStream("./Corpus_test/doc"+nb_doc+".txt");
 		DataInputStream in1 = new DataInputStream(filestream);
 		BufferedReader br1 = new BufferedReader(new InputStreamReader(in1));
 		while ((sample = br1.readLine()) != null) {
@@ -49,7 +49,7 @@ public class TagTest {
 
 		}
 		
-		MaxentTagger tagger = new MaxentTagger("Tagger/arabic.tagger");
+		MaxentTagger tagger = new MaxentTagger("./Tagger/arabic.tagger");
 		tagged = tagger.tagString(corpus);
 		
 
@@ -214,10 +214,10 @@ public class TagTest {
 				//if (arrList_Word_Tag.get(k).Time == false) sentence = sentence + " " + arrList_Word_Tag.get(k).Word;
 				//else sentence = sentence + " <>" + arrList_Word_Tag.get(k).Word+ "<> ";
 				// System.out.println(arrList_Word_Tag.get(k).Word);
-
+				
 				if (first == 0) 
-				{
-					arrList_Word_Tag.get(k).word_position = "FW";
+				{	
+					arrList_Word_Tag.get(k).word_position = "FW"; /* FW = First Word */
 					first++;
 				}
 
@@ -229,9 +229,9 @@ public class TagTest {
 
 			}
 
-			else if ((arrList_Word_Tag.get(k).word_position == "SEOS")) 
+			else if ((arrList_Word_Tag.get(k).word_position == "SEOS")) /* SEOS = End Of Sentence */
 			{
-				arrList_Word_Tag.get(k - 1).word_position = "LW";
+				arrList_Word_Tag.get(k - 1).word_position = "LW";  /* LW = Last Word */
 				add = 1;
 			}
 
@@ -420,9 +420,8 @@ public class TagTest {
 			nbs1++;k++;
 		}
 		
-		
-		
 		*/
+		
 		System.out.println("in doc "+nb_doc+"  we found : "+nb_in_doc);
 		nb_doc++;
 		nb_in_doc=0;
@@ -445,7 +444,7 @@ public class TagTest {
 
 	public static boolean is_found(String s) throws IOException 
 	{
-		FileInputStream fstream = new FileInputStream("C:/Users/dahmri/workspace/Tgger test/Reg_time_expressions/short_Time_expressions_file.txt");
+		FileInputStream fstream = new FileInputStream("./Reg_time_expressions/short_Time_expressions_file.txt");
 		DataInputStream in = new DataInputStream(fstream);
 		BufferedReader br = new BufferedReader(new InputStreamReader(in));
 		int n = 0;
